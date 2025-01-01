@@ -1,0 +1,44 @@
+.todo-main-container {
+  max-width: 1080px;
+}
+
+.todo-list-container {
+  margin: 5rem 0;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem 2rem;
+}
+
+@media (max-width: 1024px) {
+  .todo-list-container {
+    grid-template-columns: 1fr 1fr; /* 画面幅が1024px以下なら2列 */
+  }
+}
+
+@media (max-width: 600px) {
+  .todo-list-container {
+    grid-template-columns: 1fr; /* 画面幅が600px以下なら1列 */
+  }
+}
+
+.todo-item-card {
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 4px;
+  /* height: 300px; */
+  border-radius: 1.5rem;
+  align-items: center;
+  color: rgb(55, 55, 55);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.todo-item-card img {
+  width: 150px;
+  height: 100px;
+  aspect-ratio: auto 100/100;
+}
