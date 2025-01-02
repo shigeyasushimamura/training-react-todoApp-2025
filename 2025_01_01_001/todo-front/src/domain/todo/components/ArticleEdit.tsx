@@ -30,7 +30,7 @@ const ArticleEdit: FC<Props> = ({ addArticle }) => {
     <>
       <div className={styles["todo-form-container"]}>
         <h1>管理者モード</h1>
-        <h2>コンテンツ追加します</h2>
+        <h2>記事を追加します</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles["todo-form-group"]}>
             <label htmlFor="title">タイトル</label>

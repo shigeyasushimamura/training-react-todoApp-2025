@@ -10,19 +10,20 @@ interface Props {
 const ArticleItem: FC<Props> = ({ article, deleteArticle }) => {
   return (
     <article className={styles["todo-item-card"]}>
+      <h3 className={styles["todo-item-card-title"]}>{article.title}</h3>
+
+      <figure>
+        <img src={article.path} alt={article.title}></img>
+      </figure>
+      <span>{article.text}</span>
       <button
         aria-label={`Delete Article ${article.id}`}
         onClick={() => {
           deleteArticle(article.id);
         }}
       >
-        {article.id} 削除
+        削除
       </button>
-      <h3 className={styles["todo-item-card-title"]}>{article.title}</h3>
-      <figure>
-        <img src={article.path} alt={article.title}></img>
-      </figure>
-      <span>{article.text}</span>
     </article>
   );
 };
