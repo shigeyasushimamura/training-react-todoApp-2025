@@ -75,6 +75,23 @@ const useFetchArticles = () => {
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setIsLoading(false));
+
+    // 別海
+    // const fetchData = async () => {
+    //   try {
+    //     setIsLoading(true);
+    //     setError(null);
+
+    //     const data = await AsyncGetData();
+    //     setData(data);
+    //   } catch (err) {
+    //     setError(err instanceof Error ? err.message : "Unknown error");
+    //   } finally {
+    //     setIsLoading(false);
+    //   }
+    // };
+
+    // fetchData();
   }, []);
 
   return { data, isLoading, error };
