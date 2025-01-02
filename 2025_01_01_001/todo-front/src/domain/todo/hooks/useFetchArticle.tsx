@@ -68,30 +68,30 @@ const useFetchArticles = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    setIsLoading(true);
-    setError(null);
+    // setIsLoading(true);
+    // setError(null);
 
-    AsyncGetData()
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setIsLoading(false));
+    // AsyncGetData()
+    //   .then(setData)
+    //   .catch((err) => setError(err.message))
+    //   .finally(() => setIsLoading(false));
 
     // 別海
-    // const fetchData = async () => {
-    //   try {
-    //     setIsLoading(true);
-    //     setError(null);
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
 
-    //     const data = await AsyncGetData();
-    //     setData(data);
-    //   } catch (err) {
-    //     setError(err instanceof Error ? err.message : "Unknown error");
-    //   } finally {
-    //     setIsLoading(false);
-    //   }
-    // };
+        const data = await AsyncGetData();
+        setData(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Unknown error");
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-    // fetchData();
+    fetchData();
   }, []);
 
   return { data, isLoading, error };

@@ -4,33 +4,19 @@ import "./App.css";
 import Layout from "./components/Layout";
 import MainArticleList from "./domain/news/components/MainArticleList";
 import { Article } from "./domain/news/types/Types";
-
-const array: Article[] = [
-  {
-    id: 1,
-    publishDate: "2024-12-01",
-    title: "バイローカルマーケット",
-    category: "ニュース",
-    content: "開催！",
-  },
-  {
-    id: 2,
-    publishDate: "2024-12-01",
-    title: "バイローカルマーケット",
-    category: "雑談",
-    content: "開催！",
-  },
-  {
-    id: 3,
-    publishDate: "2024-12-01",
-    title: "バイローカルマーケット",
-    category: "ニュース",
-    content: "開催！",
-  },
-];
+import useFetcArticle from "./domain/news/hooks/useFetcArticle";
 
 function App() {
-  const [articleList, setArticleList] = useState<Article[]>(array);
+  const [articleList, setArticleList] = useState<Article[]>([]);
+
+  const { data, isLoading, error } = useFetcArticle();
+
+  useEffect(() => {
+    setArticleList(data);
+  });
+
+  if (isLoading) return <div>...loading...</div>;
+  if (error) return <div>error occurred</div>;
 
   return (
     <>
