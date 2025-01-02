@@ -6,6 +6,7 @@ import MainArticleList from "./domain/news/components/MainArticleList";
 import { Article } from "./domain/news/types/Types";
 import useFetcArticle from "./domain/news/hooks/useFetcArticle";
 import UseArticleAction from "./domain/news/hooks/useArticleAction";
+import MainArticleDetail from "./domain/news/components/MainArticleDetail";
 
 function App() {
   const [articleList, setArticleList] = useState<Article[]>([]);
@@ -35,6 +36,10 @@ function App() {
                   addArticle={addArticle}
                 />
               }
+            ></Route>
+            <Route
+              path="/:id"
+              element={<MainArticleDetail articleList={articleList} />}
             ></Route>
           </Routes>
         </BrowserRouter>

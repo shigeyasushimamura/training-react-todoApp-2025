@@ -1,6 +1,7 @@
 import { FC, memo } from "react";
 import { Article } from "../types/Types";
 import styles from "./Article.module.css";
+import { Link } from "react-router-dom";
 
 interface Props {
   article: Article;
@@ -19,7 +20,9 @@ const ArticleItem: FC<Props> = ({ article, deleteArticle }) => {
           {article.publishDate}
         </time>
         <div className={styles["category"]}>{article.category}</div>
-        <h3 className={styles["title"]}>{article.title}</h3>
+        <h3 className={styles["title"]}>
+          <Link to={`/${article.id}`}>{article.title}</Link>
+        </h3>
         <button className={styles["delete-btn"]} onClick={handleDeleteArticle}>
           削除
         </button>
