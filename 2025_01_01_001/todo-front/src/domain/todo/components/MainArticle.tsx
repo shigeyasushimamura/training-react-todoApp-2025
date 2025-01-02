@@ -40,6 +40,18 @@ const array = [
 const MainArticle = () => {
   const [articleList, setArticleList] = useState<Article[]>(array);
 
+  const deleteArticle = (id: number) => {
+    setArticleList(articleList.filter((a) => a.id !== id));
+  };
+
+  const addArticle = (article: Article) => {
+    setArticleList([...articleList, article]);
+  };
+
+  const updateArticle = (article: Article) => {
+    setArticleList(articleList.map((a) => (a.id !== article.id ? a : article)));
+  };
+
   return (
     <div className={styles["todo-main-container"]}>
       <MemoArticleList articleList={articleList} />
