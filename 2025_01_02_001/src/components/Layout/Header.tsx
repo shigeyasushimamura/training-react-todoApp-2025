@@ -1,9 +1,12 @@
 import styles from "./Layout.module.css";
+
 const Header = () => {
   return (
     <>
       <header className={styles["l-header"]}>
-        <h1>下原自動車</h1>
+        <a href="/">
+          <h1>下原自動車</h1>
+        </a>
       </header>
       <div className={styles["l-hamburger"]}>
         <button>menu</button>
