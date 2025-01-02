@@ -1,51 +1,25 @@
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, useEffect, memo, FC } from "react";
 import styles from "./Article.module.css";
 import { Article } from "../types";
 import { MemoArticleItem } from "./ArticleItem";
 
-const array = [
-  {
-    id: 1,
-    title: "みけねこ",
-    text: "メスねこがおおい",
-    path: "/mikeneko.jpg",
-  },
-  {
-    id: 2,
-    title: "くろねこ",
-    text: "ちゅうせいじだいはきらわれていた",
-    path: "/mikeneko.jpg",
-  },
-  {
-    id: 3,
-    title: "くろねこ",
-    text: "ちゅうせいじだいはきらわれていた",
-    path: "/mikeneko.jpg",
-  },
-  {
-    id: 4,
-    title: "くろねこ",
-    text: "ちゅうせいじだいはきらわれていた",
-    path: "/mikeneko.jpg",
-  },
-  {
-    id: 5,
-    title: "くろねこ",
-    text: "ちゅうせいじだいはきらわれていた",
-    path: "/mikeneko.jpg",
-  },
-];
+interface Props {
+  articleList: Article[];
+}
 
-const ArticleList = () => {
-  const [articleList, setArticleList] = useState<Article[]>(array);
-
+const ArticleList: FC<Props> = ({ articleList }) => {
   return (
-    <div className={styles["todo-list-container"]}>
-      {articleList.map((article) => {
-        return <MemoArticleItem article={article} />;
-      })}
-    </div>
+    <>
+      <div className={styles["todo-list-container"]}>
+        {articleList.map((article) => {
+          return <MemoArticleItem key={article.id} article={article} />;
+        })}
+      </div>
+    </>
   );
 };
 
-export const MemoArticleList = memo(ArticleList);
+export const MemoArticleList = memo(
+  ArticleList,
+  (prevProps, nextProps) => prevProps.articleList === nextProps.articleList
+);

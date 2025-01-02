@@ -3,7 +3,7 @@
   font-weight: 500;
   font-size: 1.5rem;
   color: #d3d3d3;
-  background-color: mediumaquamarine;
+  background-color: white;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -13,7 +13,7 @@
 
 .l-header {
   width: 100%;
-  background-color: rgb(82, 189, 199);
+  background-color: rgb(146, 202, 207);
 }
 
 .l-header-container {

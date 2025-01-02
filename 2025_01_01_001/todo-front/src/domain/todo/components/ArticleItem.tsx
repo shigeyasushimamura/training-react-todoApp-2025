@@ -8,8 +8,8 @@ interface Props {
 
 const ArticleItem: FC<Props> = ({ article }) => {
   return (
-    <article key={article.id} className={styles["todo-item-card"]}>
-      <span>{article.title}</span>
+    <article className={styles["todo-item-card"]}>
+      <h3 className={styles["todo-item-card-title"]}>{article.title}</h3>
       <figure>
         <img src={article.path} alt={article.title}></img>
       </figure>
@@ -18,4 +18,7 @@ const ArticleItem: FC<Props> = ({ article }) => {
   );
 };
 
-export const MemoArticleItem = memo(ArticleItem);
+export const MemoArticleItem = memo(
+  ArticleItem,
+  (prevProps, nextProps) => prevProps.article === nextProps.article
+);
