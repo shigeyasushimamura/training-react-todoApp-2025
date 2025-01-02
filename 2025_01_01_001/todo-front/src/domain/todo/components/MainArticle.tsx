@@ -3,6 +3,7 @@ import styles from "./Article.module.css";
 import { MemoArticleList } from "./ArticleList";
 import { Article } from "../types";
 import { MemoArticleEdit } from "./ArticleEdit";
+import useArticleActions from "../hooks/useArticleAction";
 
 const array = [
   {
@@ -71,19 +72,8 @@ const MainArticle = () => {
       });
   }, []);
 
-  const deleteArticle = useCallback((id: number) => {
-    setArticleList((prevList) => prevList.filter((a) => a.id !== id));
-  }, []);
-
-  const addArticle = useCallback((article: Article) => {
-    setArticleList((prevList) => [...prevList, article]);
-  }, []);
-
-  const updateArticle = useCallback((article: Article) => {
-    setArticleList((prevList) =>
-      prevList.map((a) => (a.id !== article.id ? a : article))
-    );
-  }, []);
+  const { deleteArticle, addArticle, updateArticle } =
+    useArticleActions(setArticleList);
 
   if (isLoading) {
     return <div>...isLoading</div>;
