@@ -11,6 +11,7 @@ const ArticleItem: FC<Props> = ({ article, deleteArticle }) => {
   return (
     <article className={styles["todo-item-card"]}>
       <button
+        aria-label={`Delete Article ${article.id}`}
         onClick={() => {
           deleteArticle(article.id);
         }}
