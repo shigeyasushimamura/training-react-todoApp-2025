@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Article } from "../types/Types";
 import ArticleList from "./ArticleList";
 import styles from "./Article.module.css";
-import FormArticle from "./FormArticle";
+import { MemoFormArticle } from "./FormArticle";
 
 interface Props {
   articleList: Article[];
@@ -19,7 +19,7 @@ const MainArticleList: FC<Props> = ({
     <>
       <div className={styles["m-container"]}>
         <ArticleList articleList={articleList} deleteArticle={deleteArticle} />
-        <FormArticle addArticle={addArticle} />
+        <MemoFormArticle addArticle={addArticle} />
       </div>
     </>
   );

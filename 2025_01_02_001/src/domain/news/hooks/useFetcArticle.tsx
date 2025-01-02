@@ -30,6 +30,27 @@ const array: Article[] = [
     category: "大切なお知らせ",
     content: "開催！",
   },
+  {
+    id: 5,
+    publishDate: "2024-12-01",
+    title: "バイローカルマーケット",
+    category: "ニュース",
+    content: "開催！",
+  },
+  {
+    id: 6,
+    publishDate: "2024-12-01",
+    title: "バイローカルマーケット",
+    category: "雑談",
+    content: "開催！",
+  },
+  {
+    id: 7,
+    publishDate: "2024-12-01",
+    title: "バイローカルマーケット",
+    category: "ニュース",
+    content: "開催！",
+  },
 ];
 
 async function getArticleData(): Promise<Article[]> {

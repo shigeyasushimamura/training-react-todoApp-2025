@@ -6,7 +6,6 @@ const UseArticleAction = (
 ) => {
   const addArticle = useCallback(
     (article: Article) => {
-      console.log("article", article);
       setArticleList((prev) => [...prev, article]);
     },
     [setArticleList]

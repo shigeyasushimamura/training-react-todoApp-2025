@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, memo } from "react";
 import { Article, Category } from "../types/Types";
 interface Props {
   addArticle: (article: Article) => void;
@@ -83,4 +83,4 @@ const FormArticle: FC<Props> = ({ addArticle }) => {
   );
 };
 
-export default FormArticle;
+export const MemoFormArticle = memo(FormArticle);

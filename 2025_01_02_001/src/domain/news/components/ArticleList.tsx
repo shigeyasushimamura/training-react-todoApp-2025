@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Article } from "../types/Types";
 import ArticleItem from "./ArticleItem";
 import styles from "./Article.module.css";
@@ -28,4 +28,6 @@ const ArticleList: FC<Props> = ({ articleList, deleteArticle }) => {
   );
 };
 
-export default ArticleList;
+const MemoArticleList = memo(ArticleList);
+
+export default MemoArticleList;
