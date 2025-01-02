@@ -1,0 +1,44 @@
+.l-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  z-index: 100;
+}
+
+.l-hamburger {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  width: 50px;
+  z-index: 100;
+}
+
+.l-hamburger button {
+  padding: 10px;
+  height: 40px;
+  background-color: rgb(48, 48, 73);
+  color: white;
+  border-radius: 1rem;
+}
+
+.l-hamburger:hover button {
+  background-color: aqua;
+}
+
+.l-gnav {
+  position: relative;
+  height: 70px;
+}
+
+.l-gnav .nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 15px 80px 15px 0;
+  list-style: none;
+}
+
+.l-gnav .item {
+  padding: 0 10px;
+}
