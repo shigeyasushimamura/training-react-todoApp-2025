@@ -17,6 +17,7 @@ const ArticleItem: FC<Props> = ({ article, deleteArticle }) => {
       </figure>
       <span>{article.text}</span>
       <button
+        className={styles["submit-button"]}
         aria-label={`Delete Article ${article.id}`}
         onClick={() => {
           deleteArticle(article.id);
