@@ -19,7 +19,7 @@
 
 .article-list-container ul {
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -49,7 +49,7 @@
   color: #757575;
   font-weight: 300;
   margin-left: 3rem;
-  width: 120px;
+  width: 180px;
   text-align: center;
   padding: 4px 20px;
   border: 1px solid black;
@@ -71,4 +71,43 @@
 
 .article-item-container .title:hover {
   color: rgba(62, 143, 143, 0.585);
+}
+
+.article-item-container .delete-btn {
+  margin-left: 2rem;
+  padding: 0.5rem;
+  color: white;
+  background-color: palevioletred;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px #2f354e;
+}
+
+.article-item-container .delete-btn:hover {
+  background-color: red;
+  box-shadow: 0 1px 2px #2f354e;
+}
+
+.article-form-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 5rem auto;
+  padding: 20px;
+  background-color: #f9f9ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px black;
+}
+
+.article-form-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  gap: 1rem;
+}
+
+.article-form-group label {
 }

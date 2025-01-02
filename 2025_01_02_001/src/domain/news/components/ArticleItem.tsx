@@ -4,9 +4,14 @@ import styles from "./Article.module.css";
 
 interface Props {
   article: Article;
+  deleteArticle: (id: number) => void;
 }
 
-const ArticleItem: FC<Props> = ({ article }) => {
+const ArticleItem: FC<Props> = ({ article, deleteArticle }) => {
+  const handleDeleteArticle = () => {
+    deleteArticle(article.id);
+  };
+
   return (
     <>
       <article className={styles["article-item-container"]}>
@@ -15,6 +20,9 @@ const ArticleItem: FC<Props> = ({ article }) => {
         </time>
         <div className={styles["category"]}>{article.category}</div>
         <h3 className={styles["title"]}>{article.title}</h3>
+        <button className={styles["delete-btn"]} onClick={handleDeleteArticle}>
+          削除
+        </button>
       </article>
     </>
   );

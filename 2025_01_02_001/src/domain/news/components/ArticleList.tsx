@@ -5,9 +5,10 @@ import styles from "./Article.module.css";
 
 interface Props {
   articleList: Article[];
+  deleteArticle: (id: number) => void;
 }
 
-const ArticleList: FC<Props> = ({ articleList }) => {
+const ArticleList: FC<Props> = ({ articleList, deleteArticle }) => {
   return (
     <>
       <div className={styles["article-list-container"]}>
@@ -17,7 +18,7 @@ const ArticleList: FC<Props> = ({ articleList }) => {
           {articleList.map((a: Article) => {
             return (
               <li key={a.id}>
-                <ArticleItem article={a} />
+                <ArticleItem article={a} deleteArticle={deleteArticle} />
               </li>
             );
           })}

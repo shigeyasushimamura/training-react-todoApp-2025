@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Article } from "../types/Types";
 
 const array: Article[] = [
@@ -21,6 +21,13 @@ const array: Article[] = [
     publishDate: "2024-12-01",
     title: "バイローカルマーケット",
     category: "ニュース",
+    content: "開催！",
+  },
+  {
+    id: 4,
+    publishDate: "2024-12-01",
+    title: "バイローカルマーケット",
+    category: "大切なお知らせ",
     content: "開催！",
   },
 ];

@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import MainArticleList from "./domain/news/components/MainArticleList";
 import { Article } from "./domain/news/types/Types";
 import useFetcArticle from "./domain/news/hooks/useFetcArticle";
+import UseArticleAction from "./domain/news/hooks/useArticleAction";
 
 function App() {
   const [articleList, setArticleList] = useState<Article[]>([]);
@@ -13,7 +14,9 @@ function App() {
 
   useEffect(() => {
     setArticleList(data);
-  });
+  }, [data]);
+
+  const { addArticle, deleteArticle } = UseArticleAction(setArticleList);
 
   if (isLoading) return <div>...loading...</div>;
   if (error) return <div>error occurred</div>;
@@ -25,7 +28,13 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<MainArticleList articleList={articleList} />}
+              element={
+                <MainArticleList
+                  articleList={articleList}
+                  deleteArticle={deleteArticle}
+                  addArticle={addArticle}
+                />
+              }
             ></Route>
           </Routes>
         </BrowserRouter>

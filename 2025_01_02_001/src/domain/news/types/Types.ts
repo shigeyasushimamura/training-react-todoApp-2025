@@ -5,3 +5,5 @@ export interface Article {
   category: "ニュース" | "雑談" | "大切なお知らせ";
   content: string;
 }
+
+export type Category = "ニュース" | "雑談" | "大切なお知らせ";
