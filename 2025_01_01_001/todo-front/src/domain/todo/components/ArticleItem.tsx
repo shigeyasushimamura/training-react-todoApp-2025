@@ -4,11 +4,19 @@ import styles from "./Article.module.css";
 
 interface Props {
   article: Article;
+  deleteArticle: (id: number) => void;
 }
 
-const ArticleItem: FC<Props> = ({ article }) => {
+const ArticleItem: FC<Props> = ({ article, deleteArticle }) => {
   return (
     <article className={styles["todo-item-card"]}>
+      <button
+        onClick={() => {
+          deleteArticle(article.id);
+        }}
+      >
+        {article.id} 削除
+      </button>
       <h3 className={styles["todo-item-card-title"]}>{article.title}</h3>
       <figure>
         <img src={article.path} alt={article.title}></img>
@@ -18,7 +26,4 @@ const ArticleItem: FC<Props> = ({ article }) => {
   );
 };
 
-export const MemoArticleItem = memo(
-  ArticleItem,
-  (prevProps, nextProps) => prevProps.article === nextProps.article
-);
+export const MemoArticleItem = memo(ArticleItem);

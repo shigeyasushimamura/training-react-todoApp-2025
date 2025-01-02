@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import styles from "./Article.module.css";
 import { MemoArticleList } from "./ArticleList";
 import { Article } from "../types";
@@ -40,21 +40,26 @@ const array = [
 const MainArticle = () => {
   const [articleList, setArticleList] = useState<Article[]>(array);
 
-  const deleteArticle = (id: number) => {
-    setArticleList(articleList.filter((a) => a.id !== id));
-  };
+  const deleteArticle = useCallback((id: number) => {
+    setArticleList((prevList) => prevList.filter((a) => a.id !== id));
+  }, []);
 
-  const addArticle = (article: Article) => {
-    setArticleList([...articleList, article]);
-  };
+  const addArticle = useCallback((article: Article) => {
+    setArticleList((prevList) => [...prevList, article]);
+  }, []);
 
-  const updateArticle = (article: Article) => {
-    setArticleList(articleList.map((a) => (a.id !== article.id ? a : article)));
-  };
+  const updateArticle = useCallback((article: Article) => {
+    setArticleList((prevList) =>
+      prevList.map((a) => (a.id !== article.id ? a : article))
+    );
+  }, []);
 
   return (
     <div className={styles["todo-main-container"]}>
-      <MemoArticleList articleList={articleList} />
+      <MemoArticleList
+        articleList={articleList}
+        deleteArticle={deleteArticle}
+      />
       <MemoArticleEdit articleList={articleList} />
     </div>
   );
