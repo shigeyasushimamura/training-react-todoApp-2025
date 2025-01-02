@@ -27,7 +27,7 @@
 }
 
 .l-gnav {
-  position: relative;
+  /* position: relative; */
   height: 70px;
 }
 
@@ -41,4 +41,78 @@
 
 .l-gnav .item {
   padding: 0 10px;
+}
+
+.content {
+  display: block;
+  min-height: 50vh;
+}
+
+#l-footer {
+  z-index: 3;
+  position: relative;
+}
+
+.l-footer {
+  position: relative;
+  padding: 80px 0 120px;
+  background: linear-gradient(
+    359.48deg,
+    #173e6c 0.31%,
+    rgba(44, 85, 132, 0.93) 72.26%
+  );
+  color: white;
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-right */
+}
+
+.col-lg-5 {
+  flex: 0 0 41%;
+  max-width: 41%;
+  position: relative;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.col-lg-7 {
+  flex: 0 0 58%;
+  max-width: 58%;
+  position: relative;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.col-lg-4 {
+  flex: 0 0 33%;
+  max-width: 33%;
+  position: relative;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.l-footer .nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.l-footer .item {
+  margin-bottom: 0.6rem;
+  color: yellow;
+  line-height: 1.3rem;
 }

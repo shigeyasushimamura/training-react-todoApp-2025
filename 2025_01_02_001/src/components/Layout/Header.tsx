@@ -12,10 +12,18 @@ const Header = () => {
       <div className={styles["l-gnav"]}>
         <nav>
           <ul className={styles["nav"]}>
-            <li className={styles["item"]}>私たちについて</li>
-            <li className={styles["item"]}>事業案内</li>
-            <li className={styles["item"]}>会社案内</li>
-            <li className={styles["item"]}>採用情報</li>
+            <li className={styles["item"]}>
+              <a href="/">私たちについて</a>
+            </li>
+            <li className={styles["item"]}>
+              <a href="/">事業案内</a>
+            </li>
+            <li className={styles["item"]}>
+              <a href="/">会社案内</a>
+            </li>
+            <li className={styles["item"]}>
+              <a href="/">採用情報</a>
+            </li>
           </ul>
         </nav>
       </div>
