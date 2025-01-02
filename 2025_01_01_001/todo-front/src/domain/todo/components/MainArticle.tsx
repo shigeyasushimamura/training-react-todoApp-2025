@@ -4,73 +4,17 @@ import { MemoArticleList } from "./ArticleList";
 import { Article } from "../types";
 import { MemoArticleEdit } from "./ArticleEdit";
 import useArticleActions from "../hooks/useArticleAction";
-
-const array = [
-  {
-    id: 1,
-    title: "みけねこ",
-    text: "メスねこがおおい",
-    path: "/mikeneko.jpg",
-  },
-  {
-    id: 2,
-    title: "くろねこ",
-    text: "ちゅうせいじだいはきらわれていた",
-    path: "/mikeneko.jpg",
-  },
-  {
-    id: 3,
-    title: "くろねこ",
-    text: "ちゅうせいじだいはきらわれていた",
-    path: "/mikeneko.jpg",
-  },
-  {
-    id: 4,
-    title: "くろねこ",
-    text: "ちゅうせいじだいはきらわれていた",
-    path: "/mikeneko.jpg",
-  },
-  {
-    id: 5,
-    title: "くろねこ",
-    text: "ちゅうせいじだいはきらわれていた",
-    path: "/mikeneko.jpg",
-  },
-];
-
-async function AsyncGetData(): Promise<Article[]> {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      try {
-        resolve(array);
-      } catch (e) {
-        reject(e);
-      }
-    }, 1000);
-  });
-}
+import useFetchArticles from "../hooks/useFetchArticle";
 
 const MainArticle = () => {
-  const [articleList, setArticleList] = useState<Article[]>(array);
-  const [isLoading, setIsLoading] = useState(false);
-  const [err, setErr] = useState<string | null>(null);
+  const [articleList, setArticleList] = useState<Article[]>([]);
+  const { data, isLoading, error } = useFetchArticles();
 
   useEffect(() => {
-    setIsLoading(true);
-    setErr(null);
-
-    AsyncGetData()
-      .then((data) => {
-        setArticleList(data);
-      })
-      .catch((err) => {
-        setErr(err);
-        console.error("error occurred");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
+    if (data) {
+      setArticleList(data);
+    }
+  }, [data]);
 
   const { deleteArticle, addArticle, updateArticle } =
     useArticleActions(setArticleList);
@@ -79,8 +23,8 @@ const MainArticle = () => {
     return <div>...isLoading</div>;
   }
 
-  if (err) {
-    return <div>{err}</div>;
+  if (error) {
+    return <div>{error}</div>;
   }
 
   return (
