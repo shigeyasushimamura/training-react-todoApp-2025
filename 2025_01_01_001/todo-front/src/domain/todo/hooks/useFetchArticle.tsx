@@ -13,24 +13,24 @@ const array = [
     text: "ちゅうせいじだいはきらわれていた",
     path: "/mikeneko.jpg",
   },
-  {
-    id: 3,
-    title: "くろねこ",
-    text: "ちゅうせいじだいはきらわれていた",
-    path: "/mikeneko.jpg",
-  },
-  {
-    id: 4,
-    title: "くろねこ",
-    text: "ちゅうせいじだいはきらわれていた",
-    path: "/mikeneko.jpg",
-  },
-  {
-    id: 5,
-    title: "くろねこ",
-    text: "ちゅうせいじだいはきらわれていた",
-    path: "/mikeneko.jpg",
-  },
+  //   {
+  //     id: 3,
+  //     title: "くろねこ",
+  //     text: "ちゅうせいじだいはきらわれていた",
+  //     path: "/mikeneko.jpg",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "くろねこ",
+  //     text: "ちゅうせいじだいはきらわれていた",
+  //     path: "/mikeneko.jpg",
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "くろねこ",
+  //     text: "ちゅうせいじだいはきらわれていた",
+  //     path: "/mikeneko.jpg",
+  //   },
 ];
 
 async function AsyncGetData(): Promise<Article[]> {
@@ -41,7 +41,7 @@ async function AsyncGetData(): Promise<Article[]> {
       } catch (e) {
         reject(e);
       }
-    }, 1000);
+    }, 10);
   });
 
   // 外部apiを利用する場合用

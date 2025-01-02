@@ -18,7 +18,6 @@ const MainArticle = () => {
 
   const { deleteArticle, addArticle, updateArticle } =
     useArticleActions(setArticleList);
-
   if (isLoading) {
     return <div>...isLoading</div>;
   }
@@ -33,7 +32,7 @@ const MainArticle = () => {
         articleList={articleList}
         deleteArticle={deleteArticle}
       />
-      <MemoArticleEdit articleList={articleList} />
+      <MemoArticleEdit addArticle={addArticle} />
     </div>
   );
 };

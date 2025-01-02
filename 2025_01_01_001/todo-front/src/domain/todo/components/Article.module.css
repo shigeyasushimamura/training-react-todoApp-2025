@@ -54,3 +54,65 @@
   margin: 0 0 1.5rem;
   line-height: 1.4;
 }
+
+.todo-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.todo-form-container h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #7b7b7b;
+}
+
+.todo-form-container h2 {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.todo-form-group input[type="text"],
+.todo-form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.todo-form-group input[type="text"]:focus,
+.todo-form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.submit-button {
+  display: block;
+  margin: 2rem auto;
+  width: 30%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 1px 4px #666;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
