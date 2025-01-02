@@ -23,36 +23,84 @@
 }
 
 .todo-item-card {
-  background-color: rgb(212, 228, 210);
-  padding: 1rem;
+  background: linear-gradient(145deg, #ffffff, #23a2bc);
+
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 320px;
   /* gap: 4px; */
   /* height: 300px; */
-  border-radius: 1.5rem;
-  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(87, 96, 79, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
   color: rgb(87, 96, 79);
   font-weight: 500;
-  /* line-height: 1.1; */
+  position: relative;
+}
+
+.todo-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(87, 96, 79, 0.15);
 }
 
 .todo-item-card-title {
-  line-height: 1;
-  margin: 1rem auto 0 0;
-  padding-left: 1rem;
+  color: #2c3a2b;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  width: 100%;
+  letter-spacing: -0.02em;
+}
+
+.todo-item-card figure {
+  width: 100%;
+  margin: 0 0 1rem 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  position: relative;
 }
 
 .todo-item-card img {
-  width: 270px;
-  height: 230px;
-  aspect-ratio: auto 100/100;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.todo-item-card:hover img {
+  transform: scale(1.05);
 }
 
 .todo-item-card span {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  color: #4b5548;
+  line-height: 1.6;
   margin: 0 0 1.5rem;
-  line-height: 1.4;
+  font-weight: 400;
+}
+
+.todo-item-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  align-self: flex-end;
+}
+.todo-item-button:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}
+
+.todo-item-button:active {
+  transform: scale(0.95);
 }
 
 .todo-form-container {
