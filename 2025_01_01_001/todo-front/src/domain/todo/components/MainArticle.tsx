@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Article.module.css";
 import { MemoArticleList } from "./ArticleList";
 import { Article } from "../types";

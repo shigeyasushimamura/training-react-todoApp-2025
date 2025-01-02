@@ -43,6 +43,23 @@ async function AsyncGetData(): Promise<Article[]> {
       }
     }, 1000);
   });
+
+  // 外部apiを利用する場合用
+  //   return new Promise((resolve, reject) => {
+  //     fetch("http://localhost:3003", { method: "GET" })
+  //       .then((res) => {
+  //         if (!res.ok) {
+  //           return reject(`Error: ${res.statusText}`);
+  //         }
+  //         return res.json();
+  //       })
+  //       .then((res) => {
+  //         resolve(res.data);
+  //       })
+  //       .catch((err) => {
+  //         reject(err);
+  //       });
+  //   });
 }
 
 const useFetchArticles = () => {
