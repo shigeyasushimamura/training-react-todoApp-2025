@@ -1,0 +1,32 @@
+.l-header {
+  position: relative;
+}
+
+.l-header header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-left: 10px;
+  color: rgb(108, 199, 108);
+}
+
+.l-header nav {
+  /* margin: 0 -10px; */
+  height: 80px;
+  display: flex;
+  background: linear-gradient(#301f4e, #1b3a55);
+}
+
+.l-header .nav-container {
+  color: white;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0 20px 0 auto;
+}
+
+.l-header .nav-item {
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 0 10px;
+}
