@@ -1,27 +1,37 @@
 import { FC, memo, useState, FormEvent } from "react";
-import { Category, News } from "./types/Types";
+import { Category } from "./types/Types";
 import styles from "./News.module.css";
+import UseNewsState from "../hooks/useNewsState";
+import { addNews } from "../context/newsAction";
 
-interface Props {
-  addNews: (news: News) => void;
-}
-
-const PostNews: FC<Props> = ({ addNews }) => {
+const PostNews: FC = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [category, setCategory] = useState<Category>("雑談");
   const [publishDate, setPublishDate] = useState("2025-01-01");
 
+  const { dispatch } = UseNewsState();
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    addNews({
-      title: title,
-      content: content,
-      category: category,
-      publishDate: publishDate,
-      id: Number(Math.random() * 10000),
-    });
+    dispatch(
+      addNews({
+        title: title,
+        content: content,
+        category: category,
+        publishDate: publishDate,
+        id: Number(Math.random() * 10000),
+      })
+    );
+
+    // addNews({
+    //   title: title,
+    //   content: content,
+    //   category: category,
+    //   publishDate: publishDate,
+    //   id: Number(Math.random() * 10000),
+    // });
   };
 
   const isBtnDisabled = !title || !content;

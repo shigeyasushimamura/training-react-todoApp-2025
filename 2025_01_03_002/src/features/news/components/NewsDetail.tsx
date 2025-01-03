@@ -2,12 +2,13 @@ import { FC, useEffect, useState } from "react";
 import { News } from "./types/Types";
 import { useParams } from "react-router-dom";
 import styles from "./News.module.css";
+import { useNewsContext } from "../context/newsContext";
 
-interface Props {
-  newsList: News[];
-}
+const NewsDetail: FC = () => {
+  const { state } = useNewsContext();
 
-const NewsDetail: FC<Props> = ({ newsList }) => {
+  const { newsList } = state;
+
   const { id } = useParams();
   const [news, setNews] = useState<News | null>(null);
 

@@ -1,14 +1,12 @@
-import React, { memo, FC } from "react";
-import { News } from "./types/Types";
+import { memo, FC } from "react";
 import { MemoNewItem } from "./NewsItem";
 import styles from "./News.module.css";
+import UseNewsState from "../hooks/useNewsState";
 
-interface Props {
-  newsList: News[];
-  deleteNews: (id: number) => void;
-}
+const NewsList: FC = () => {
+  const { state } = UseNewsState();
+  const { newsList } = state;
 
-const NewsList: FC<Props> = ({ newsList, deleteNews }) => {
   return (
     <div className={styles["news"]}>
       <h1 className={styles["news__heading"]}>NewsList</h1>
@@ -17,7 +15,7 @@ const NewsList: FC<Props> = ({ newsList, deleteNews }) => {
         {newsList.map((news) => {
           return (
             <li key={news.id}>
-              <MemoNewItem news={news} deleteNews={deleteNews} />
+              <MemoNewItem news={news} />
             </li>
           );
         })}

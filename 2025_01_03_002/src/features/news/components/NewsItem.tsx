@@ -2,14 +2,18 @@ import React, { FC, memo } from "react";
 import { News } from "./types/Types";
 import styles from "./News.module.css";
 import { Link } from "react-router-dom";
+import UseNewsState from "../hooks/useNewsState";
+import { deleteNews } from "../context/newsAction";
 interface Props {
   news: News;
-  deleteNews: (id: number) => void;
 }
 
-const NewItem: FC<Props> = ({ news, deleteNews }) => {
+const NewItem: FC<Props> = ({ news }) => {
+  const { dispatch } = UseNewsState();
+
   const handleDeleteArticle = () => {
-    deleteNews(news.id);
+    // deleteNews(news.id);
+    dispatch(deleteNews(news.id));
   };
   return (
     <>

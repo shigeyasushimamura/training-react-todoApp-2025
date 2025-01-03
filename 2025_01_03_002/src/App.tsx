@@ -1,47 +1,38 @@
-import { useEffect, useState } from "react";
+import { useReducer } from "react";
 import Layout from "./components/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import MainNews from "./features/news/components/MainNews";
-import { News } from "./features/news/components/types/Types";
-import UseFetchNews from "./features/news/hooks/useFetchNews";
-import UseNewsAction from "./features/news/hooks/useNewsAction";
 import NewsDetail from "./features/news/components/NewsDetail";
+import { NewsReducer } from "./features/news/context/newsReducer";
+import { initialState, NewsContext } from "./features/news/context/newsContext";
 
 function App() {
-  const [newsList, setNewsList] = useState<News[]>([]);
-  const { data, isLoading, error } = UseFetchNews();
+  // const [newsList, setNewsList] = useState<News[]>([]);
+  // const { data, isLoading, error } = UseFetchNews();
 
-  useEffect(() => {
-    setNewsList(data);
-  }, [data]);
+  const [state, dispatch] = useReducer(NewsReducer, initialState);
+  console.log("App", state);
+  // useEffect(() => {
+  //   setNewsList(data);
+  // }, [data]);
 
-  const { addNews, deleteNews } = UseNewsAction(setNewsList);
+  // const { addNews, deleteNews } = UseNewsAction(setNewsList);
 
-  if (isLoading) return <div>...isLoading</div>;
-  if (error) return <div>..isError</div>;
+  // if (isLoading) return <div>...isLoading</div>;
+  // if (error) return <div>..isError</div>;
 
   return (
     <>
       <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <MainNews
-                  newsList={newsList}
-                  addNews={addNews}
-                  deleteNews={deleteNews}
-                />
-              }
-            ></Route>
-            <Route
-              path="/:id"
-              element={<NewsDetail newsList={newsList} />}
-            ></Route>
-          </Routes>
-        </Layout>
+        <NewsContext.Provider value={{ state, dispatch }}>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<MainNews />}></Route>
+              <Route path="/:id" element={<NewsDetail />}></Route>
+            </Routes>
+          </Layout>
+        </NewsContext.Provider>
       </BrowserRouter>
     </>
   );
