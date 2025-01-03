@@ -1,6 +1,7 @@
 import React, { FC, memo } from "react";
 import { News } from "./types/Types";
 import styles from "./News.module.css";
+import { Link } from "react-router-dom";
 interface Props {
   news: News;
   deleteNews: (id: number) => void;
@@ -15,7 +16,9 @@ const NewItem: FC<Props> = ({ news, deleteNews }) => {
       <article className={styles["news__item"]}>
         <div className={styles["news__date"]}>{news.publishDate}</div>
         <div className={styles["news__category"]}>{news.category}</div>
-        <div className={styles["news__title"]}>{news.title}</div>
+        <div className={styles["news__title"]}>
+          <Link to={`/${news.id}`}>{news.title}</Link>
+        </div>
         <button
           onClick={handleDeleteArticle}
           className={styles["news__btn--delete"]}
