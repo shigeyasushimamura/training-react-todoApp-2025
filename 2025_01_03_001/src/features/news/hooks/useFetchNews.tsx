@@ -100,7 +100,7 @@ const UseFetchNews = () => {
       }
     };
     fetch();
-  }, [data]);
+  }, []);
 
   return { data, isLoading, error };
 };
