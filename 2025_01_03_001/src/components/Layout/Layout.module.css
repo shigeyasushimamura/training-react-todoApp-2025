@@ -1,23 +1,23 @@
-.l-header {
+.header {
   position: relative;
 }
 
-.l-header header {
+.header__header {
   position: fixed;
   top: 0;
   left: 0;
   margin-left: 10px;
-  color: rgb(108, 199, 108);
+  color: rgba(114, 165, 232, 0.914);
 }
 
-.l-header nav {
+.header__nav {
   /* margin: 0 -10px; */
   height: 80px;
   display: flex;
   background: linear-gradient(#301f4e, #1b3a55);
 }
 
-.l-header .nav-container {
+.header__list {
   color: white;
   list-style: none;
   display: flex;
@@ -25,7 +25,7 @@
   margin: 0 20px 0 auto;
 }
 
-.l-header .nav-item {
+.header__item {
   font-weight: 500;
   font-size: 1.2rem;
   padding: 0 10px;
