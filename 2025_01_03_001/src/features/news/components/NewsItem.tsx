@@ -3,15 +3,25 @@ import { News } from "./types/Types";
 import styles from "./News.module.css";
 interface Props {
   news: News;
+  deleteNews: (id: number) => void;
 }
 
-const NewItem: FC<Props> = ({ news }) => {
+const NewItem: FC<Props> = ({ news, deleteNews }) => {
+  const handleDeleteArticle = () => {
+    deleteNews(news.id);
+  };
   return (
     <>
       <article className={styles["news__item"]}>
         <div className={styles["news__date"]}>{news.publishDate}</div>
         <div className={styles["news__category"]}>{news.category}</div>
         <div className={styles["news__title"]}>{news.title}</div>
+        <button
+          onClick={handleDeleteArticle}
+          className={styles["news__btn--delete"]}
+        >
+          削除
+        </button>
       </article>
     </>
   );
