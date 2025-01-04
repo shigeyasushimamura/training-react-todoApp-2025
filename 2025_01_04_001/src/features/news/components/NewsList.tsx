@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { News } from "../types/Types";
 import NewsItem from "./NewsItem";
 import styles from "./News.module.css";
@@ -7,7 +7,7 @@ interface Props {
   newsList: News[];
 }
 
-const NewsList: FC<Props> = ({ newsList }) => {
+const NewsList: FC<Props> = memo(({ newsList }) => {
   return (
     <div className={styles["news-list"]}>
       <header className={styles["news-list__header"]}>
@@ -22,6 +22,6 @@ const NewsList: FC<Props> = ({ newsList }) => {
       </ul>
     </div>
   );
-};
+});
 
 export default NewsList;
