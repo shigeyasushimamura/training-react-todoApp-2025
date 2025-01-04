@@ -1,0 +1,17 @@
+.news-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.news-list__header {
+  margin: 1rem;
+}
+
+.news-list__title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.news-list__items {
+  list-style: none;
+}
