@@ -5,9 +5,10 @@ import styles from "./News.module.css";
 
 interface Props {
   newsList: News[];
+  deleteNews: (id: number) => void;
 }
 
-const NewsList: FC<Props> = memo(({ newsList }) => {
+const NewsList: FC<Props> = memo(({ newsList, deleteNews }) => {
   return (
     <div className={styles["news-list"]}>
       <header className={styles["news-list__header"]}>
@@ -16,7 +17,7 @@ const NewsList: FC<Props> = memo(({ newsList }) => {
       <ul className={styles["news-list__items"]}>
         {newsList.map((n) => (
           <li key={n.id}>
-            <NewsItem news={n} />
+            <NewsItem news={n} deleteNews={deleteNews} />
           </li>
         ))}
       </ul>

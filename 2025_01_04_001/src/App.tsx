@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainNews from "./features/news/components/MainNews";
 import { News } from "./features/news/types/Types";
 import UseFetchNews from "./features/news/hooks/useFetchNews";
+import UseNewsAction from "./features/news/hooks/useNewsAction";
 
 function App() {
   const [newsList, setNews] = useState<News[]>([]);
@@ -14,6 +15,8 @@ function App() {
     if (data) setNews(data);
   }, [data]);
 
+  const { addNews, deleteNews } = UseNewsAction(setNews);
+
   if (isLoading) return <div>...isloading</div>;
   if (error) return <div>error occurred</div>;
 
@@ -22,7 +25,16 @@ function App() {
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/" element={<MainNews newsList={newsList} />}></Route>
+            <Route
+              path="/"
+              element={
+                <MainNews
+                  newsList={newsList}
+                  addNews={addNews}
+                  deleteNews={deleteNews}
+                />
+              }
+            ></Route>
           </Routes>
         </Layout>
       </BrowserRouter>
