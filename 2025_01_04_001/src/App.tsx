@@ -6,6 +6,7 @@ import MainNews from "./features/news/components/MainNews";
 import { News } from "./features/news/types/Types";
 import UseFetchNews from "./features/news/hooks/useFetchNews";
 import UseNewsAction from "./features/news/hooks/useNewsAction";
+import DetailNews from "./features/news/components/DetailNews";
 
 function App() {
   const [newsList, setNews] = useState<News[]>([]);
@@ -34,6 +35,10 @@ function App() {
                   deleteNews={deleteNews}
                 />
               }
+            ></Route>
+            <Route
+              path="/:id"
+              element={<DetailNews newsList={newsList} />}
             ></Route>
           </Routes>
         </Layout>

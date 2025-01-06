@@ -1,5 +1,6 @@
 import { FC, memo } from "react";
 import { News } from "../types/Types";
+import { Link } from "react-router-dom";
 
 interface Props {
   news: News;
@@ -15,8 +16,11 @@ const NewsItem: FC<Props> = memo(({ news, deleteNews }) => {
     <div>
       <article>
         {news.publishDate}
-        {news.title}
+        <div>
+          <Link to={`/${news.id}`}>{news.title}</Link>
+        </div>
         {/* <img src={news.path} /> */}
+        {news.category}
         <button onClick={handleDelete} aira-lavel="記事削除">
           削除
         </button>
