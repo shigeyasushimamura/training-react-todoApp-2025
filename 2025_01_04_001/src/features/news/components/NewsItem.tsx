@@ -1,6 +1,7 @@
 import { FC, memo } from "react";
 import { News } from "../types/Types";
 import { Link } from "react-router-dom";
+import styles from "./News.module.css";
 
 interface Props {
   news: News;

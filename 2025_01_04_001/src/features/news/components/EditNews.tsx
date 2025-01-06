@@ -1,5 +1,6 @@
 import { FC, FormEvent, memo, useState } from "react";
 import { Category, News } from "../types/Types";
+import styles from "./News.module.css";
 
 interface Props {
   addNews: (news: News) => void;
@@ -34,34 +35,46 @@ const EditNews: FC<Props> = memo(({ addNews }) => {
   const isBtnDisabled = !title || !category || !content;
 
   return (
-    <div>
-      <h1>記事追加</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label htmlFor="title">タイトル</label>
+    <div className={styles["news-post"]}>
+      <h1 className={styles["news-post__heading"]}>記事追加</h1>
+      <form
+        onSubmit={(e) => handleSubmit(e)}
+        className={styles["news-post__form"]}
+      >
+        <div className={styles["news-post__form-field"]}>
+          <label htmlFor="title" className={styles["news-post__label"]}>
+            タイトル
+          </label>
 
           <input
             type="text"
             id="title"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
+            className={styles["news-post__input"]}
           ></input>
         </div>
 
-        <div>
-          <label htmlFor="publishDate">公開日</label>
+        <div className={styles["news-post__form-field"]}>
+          <label htmlFor="publishDate" className={styles["news-post__label"]}>
+            公開日
+          </label>
           <input
             value={publishDate}
             type="text"
             onChange={(e) => setPublishDate(e.target.value)}
+            className={styles["news-post__input"]}
           />
         </div>
 
-        <div className="">
-          <label htmlFor="category">カテゴリー</label>
+        <div className={styles["news-post__form-field"]}>
+          <label htmlFor="category" className={styles["news-post__label"]}>
+            カテゴリー
+          </label>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value as Category)}
+            className={styles["news-post__input"]}
           >
             <option value="雑談">雑談</option>
             <option value="大切なお知らせ">大切なお知らせ</option>
@@ -69,14 +82,21 @@ const EditNews: FC<Props> = memo(({ addNews }) => {
           </select>
         </div>
 
-        <div className="">
-          <label htmlFor="content">本文</label>
+        <div className={styles["news-post__form-field"]}>
+          <label htmlFor="content" className={styles["news-post__label"]}>
+            本文
+          </label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            className={styles["news-post__textarea"]}
           ></textarea>
         </div>
-        <button type="submit" disabled={isBtnDisabled}>
+        <button
+          type="submit"
+          disabled={isBtnDisabled}
+          className={styles["news-post__btn"]}
+        >
           新規投稿
         </button>
       </form>

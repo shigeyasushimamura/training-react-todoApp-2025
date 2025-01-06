@@ -15,3 +15,45 @@
 .news-list__items {
   list-style: none;
 }
+
+.news-post {
+  max-width: 30rem;
+  margin: 5rem auto;
+}
+
+.news-post__heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: rgba(74, 68, 68, 0.792);
+}
+
+.news-post__form-field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.news-post__label {
+  font-size: 1rem;
+  font-weight: 400;
+  color: grey;
+}
+
+.news-post__input {
+  border-radius: 0.25rem;
+  border: 1 solid rgba(113, 95, 95, 0.905);
+}
+.news-post__input:active {
+  color: red;
+}
+
+.news-post__textarea {
+  height: 5rem;
+  border-radius: 0.25rem;
+  border: 1 solid rgba(113, 95, 95, 0.905);
+}
+
+.news-post__btn {
+  margin-top: 0.25rem;
+}
