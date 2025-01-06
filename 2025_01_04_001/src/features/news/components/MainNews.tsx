@@ -6,13 +6,14 @@ import EditNews from "./EditNews";
 interface Props {
   newsList: News[];
   deleteNews: (id: number) => void;
+  addNews: (news: News) => void;
 }
 
-const MainNews: FC<Props> = ({ newsList, deleteNews }) => {
+const MainNews: FC<Props> = ({ newsList, deleteNews, addNews }) => {
   return (
     <div>
       <NewsList newsList={newsList} deleteNews={deleteNews} />
-      <EditNews />
+      <EditNews addNews={addNews} />
     </div>
   );
 };
