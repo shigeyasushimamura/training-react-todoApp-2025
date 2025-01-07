@@ -92,13 +92,15 @@ const EditNews: FC<Props> = memo(({ addNews }) => {
             className={styles["news-post__textarea"]}
           ></textarea>
         </div>
-        <button
-          type="submit"
-          disabled={isBtnDisabled}
-          className={styles["news-post__btn"]}
-        >
-          新規投稿
-        </button>
+        <div className={styles["news-post__btn-container"]}>
+          <button
+            type="submit"
+            disabled={isBtnDisabled}
+            className={styles["news-post__btn"]}
+          >
+            新規投稿
+          </button>
+        </div>
       </form>
     </div>
   );

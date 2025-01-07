@@ -3,7 +3,7 @@ import styles from "./Layout.module.css";
 const Header = () => {
   return (
     <div className={styles["header"]}>
-      <header className={styles["header__title"]}>
+      <header className={styles["header__heading"]}>
         <a href="/">Title</a>
       </header>
 
