@@ -233,10 +233,16 @@
   border-radius: 1.75rem;
   width: 11rem;
   text-align: center;
-  background-color: rgb(222, 227, 73);
-  color: rgb(158, 158, 158);
+  background-color: rgb(33, 110, 158);
+  color: rgb(255, 255, 255);
   font-weight: 600;
   font-size: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.news-detail__category:hover {
+  background-color: blue;
+  color: white;
 }
 
 .news-detail__content {
