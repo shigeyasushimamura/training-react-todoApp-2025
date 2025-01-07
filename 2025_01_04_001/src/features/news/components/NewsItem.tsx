@@ -14,19 +14,25 @@ const NewsItem: FC<Props> = memo(({ news, deleteNews }) => {
   };
 
   return (
-    <div>
-      <article>
-        {news.publishDate}
-        <div>
-          <Link to={`/${news.id}`}>{news.title}</Link>
-        </div>
-        {/* <img src={news.path} /> */}
-        {news.category}
-        <button onClick={handleDelete} aira-lavel="記事削除">
-          削除
-        </button>
-      </article>
-    </div>
+    <article className={styles["news-item"]}>
+      <div>{news.publishDate}</div>
+      <div>
+        <Link to={`/${news.id}`}>{news.title}</Link>
+      </div>
+      <div className={styles["news-item__img-container"]}>
+        <img src={news.path} className={styles["news-item__img"]} />
+
+        <span className={styles["news-item__img-tag"]}>new</span>
+      </div>
+      <div className={styles["news-item__category"]}>{news.category}</div>
+      <button
+        onClick={handleDelete}
+        aira-lavel="記事削除"
+        className={styles["news-item__btn"]}
+      >
+        削除
+      </button>
+    </article>
   );
 });
 

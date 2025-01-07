@@ -11,8 +11,8 @@ interface Props {
 const NewsList: FC<Props> = memo(({ newsList, deleteNews }) => {
   return (
     <div className={styles["news-list"]}>
-      <header className={styles["news-list__header"]}>
-        <h2 className={styles["news-list__title"]}>記事一覧</h2>
+      <header className={styles["news-list__heading"]}>
+        <h2>記事一覧</h2>
       </header>
       <ul className={styles["news-list__items"]}>
         {newsList.map((n) => (
