@@ -21,7 +21,11 @@ const DetailNews = ({ newsList }: { newsList: News[] }) => {
       {data && (
         <article className={styles["news-detail__article"]}>
           <div className={styles["news-detail__image-container"]}>
-            <img src={data.path} className={styles["news-detail__image"]} />
+            <img
+              src={data.path}
+              loading="lazy"
+              className={styles["news-detail__image"]}
+            />
             <div className={styles["news-detail__category"]}>
               {data.category}
             </div>

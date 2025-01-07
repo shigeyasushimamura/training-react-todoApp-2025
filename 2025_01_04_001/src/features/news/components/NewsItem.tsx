@@ -20,7 +20,11 @@ const NewsItem: FC<Props> = memo(({ news, deleteNews }) => {
         <Link to={`/${news.id}`}>{news.title}</Link>
       </div>
       <div className={styles["news-item__img-container"]}>
-        <img src={news.path} className={styles["news-item__img"]} />
+        <img
+          src={news.path}
+          loading="lazy"
+          className={styles["news-item__img"]}
+        />
 
         <span className={styles["news-item__img-tag"]}>new</span>
       </div>
