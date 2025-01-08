@@ -1,16 +1,16 @@
 import NewsItem from "./NewsItem";
 import { FC, memo } from "react";
 import { News } from "./types/type";
-
+import styles from "./News.module.css";
 interface Props {
   newsList: News[];
   deleteNews: (id: number) => void;
 }
 const NewsList: FC<Props> = memo(({ newsList, deleteNews }) => {
   return (
-    <div className="">
-      <h2>newslist</h2>
-      <ul>
+    <div className={styles["news__list"]}>
+      <h2 className={styles["news__list-heading"]}>ニュース一覧</h2>
+      <ul className={styles["news__list-ul"]}>
         {newsList.map((news) => {
           return (
             <li key={news.id}>

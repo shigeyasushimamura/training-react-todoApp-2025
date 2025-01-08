@@ -1,6 +1,6 @@
 .header {
   height: 5rem;
-  background-color: rgba(241, 144, 240, 0.441);
+  background-color: rgb(24, 17, 24);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,6 +9,13 @@
 
 .header__heading {
   font-size: 1.75rem;
+  color: white;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.header__heading:hover {
+  transform: scale(1.5);
 }
 
 .header__nav {

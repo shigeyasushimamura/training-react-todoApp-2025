@@ -2,6 +2,7 @@ import { FC } from "react";
 import NewsList from "./NewsList";
 import { News } from "./types/type";
 import NewsPost from "./NewsPost";
+import styles from "./News.module.css";
 
 interface Props {
   newsList: News[];
@@ -11,8 +12,8 @@ interface Props {
 
 const MainNews: FC<Props> = ({ newsList, addNews, deleteNews }) => {
   return (
-    <div className="">
-      <h1>main</h1>
+    <div className={styles["news"]}>
+      {/* <header className={styles["news__heading"]}>コンテンツ</header> */}
       <NewsList newsList={newsList} deleteNews={deleteNews} />
       <NewsPost newsList={newsList} addNews={addNews} />
     </div>

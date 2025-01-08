@@ -8,6 +8,7 @@ import MainNews from "./features/news";
 import { News } from "./features/news/types/type";
 import GetNews from "./api/getNews";
 import UseNewsAction from "./features/news/hooks/useNewsAction";
+import NewsDetail from "./features/news/NewsDetail";
 
 const array: News[] = [
   {
@@ -58,6 +59,10 @@ function App() {
                   deleteNews={deleteNews}
                 />
               }
+            ></Route>
+            <Route
+              path="/:id"
+              element={<NewsDetail newsList={newsList} />}
             ></Route>
           </Routes>
         </Layout>
