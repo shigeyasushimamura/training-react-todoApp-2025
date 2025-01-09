@@ -2,6 +2,7 @@ import MemoNewsList from "./NewsList";
 import { FC } from "react";
 import styles from "./News.module.css";
 import MemoPostNews from "./PostNews";
+import { useNewsContext } from "../context/newsContext";
 
 const MainNews: FC = () => {
   return (
