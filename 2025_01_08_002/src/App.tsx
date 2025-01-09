@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -9,6 +9,11 @@ import { News } from "./features/news/types/type";
 import GetNews from "./api/getNews";
 import UseNewsAction from "./features/news/hooks/useNewsAction";
 import NewsDetail from "./features/news/NewsDetail";
+import {
+  newsContext,
+  NewsProvider,
+  newsReducer,
+} from "./features/news/reducers/reducer";
 
 const array: News[] = [
   {
@@ -48,24 +53,26 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <MainNews
-                  newsList={newsList}
-                  addNews={addNews}
-                  deleteNews={deleteNews}
-                />
-              }
-            ></Route>
-            <Route
-              path="/:id"
-              element={<NewsDetail newsList={newsList} />}
-            ></Route>
-          </Routes>
-        </Layout>
+        <NewsProvider>
+          <Layout>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <MainNews
+                    newsList={newsList}
+                    addNews={addNews}
+                    deleteNews={deleteNews}
+                  />
+                }
+              ></Route>
+              <Route
+                path="/:id"
+                element={<NewsDetail newsList={newsList} />}
+              ></Route>
+            </Routes>
+          </Layout>
+        </NewsProvider>
       </BrowserRouter>
     </div>
   );

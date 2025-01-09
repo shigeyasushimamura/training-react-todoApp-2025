@@ -3,6 +3,7 @@ import NewsList from "./NewsList";
 import { News } from "./types/type";
 import NewsPost from "./NewsPost";
 import styles from "./News.module.css";
+import { useNewsContext } from "./reducers/reducer";
 
 interface Props {
   newsList: News[];
@@ -11,6 +12,8 @@ interface Props {
 }
 
 const MainNews: FC<Props> = ({ newsList, addNews, deleteNews }) => {
+  const { state, dispatch } = useNewsContext();
+
   return (
     <div className={styles["news"]}>
       {/* <header className={styles["news__heading"]}>コンテンツ</header> */}

@@ -1,6 +1,8 @@
 import React, { FC, useState } from "react";
 import { News } from "./types/type";
 import styles from "./News.module.css";
+import { useNewsActionDispatch } from "./hooks/useNewsActionDispatch";
+
 interface Props {
   newsList: News[];
   addNews: (n: News) => void;
@@ -10,6 +12,9 @@ const NewsPost: FC<Props> = ({ addNews }) => {
   const [id, setId] = useState(Math.floor(Math.random() * 10000));
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+
+  // const { dispatch } = UseNewsContext();
+  const { addNewsDispatch } = useNewsActionDispatch();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +28,8 @@ const NewsPost: FC<Props> = ({ addNews }) => {
       path: "pen.png",
     };
 
-    addNews(tmp);
+    // addNews(tmp);
+    addNewsDispatch(tmp);
   };
 
   const isBtnDisabled = !title || !body;
