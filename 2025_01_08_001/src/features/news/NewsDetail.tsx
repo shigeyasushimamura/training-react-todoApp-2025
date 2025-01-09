@@ -19,13 +19,19 @@ const NewsDetail: FC<Props> = ({ newsList }) => {
   }, [id, newsList]);
 
   return (
-    <div className="">
-      ニュース詳細
+    <div className={styles["news-detail"]}>
+      <h1 className={styles["news-detail__heading"]}>ニュース詳細</h1>
       {data && (
-        <article>
-          {data.id}
-          {data.title}
-          {data.body}
+        <article className={styles["news-detail__item"]}>
+          <header className={styles["news-detail_item-heading"]}>
+            <h3> {data.title}</h3>
+          </header>
+          <div className={styles["news-detail__field"]}>
+            <img src={data.path} className={styles["news-detail__image"]}></img>
+          </div>
+          <div className={styles["news-detail_field"]}>
+            <p className={styles["news-detail__p"]}>{data.body}</p>
+          </div>
         </article>
       )}
     </div>
