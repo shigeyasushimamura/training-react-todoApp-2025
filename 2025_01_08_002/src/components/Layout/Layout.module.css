@@ -1,0 +1,44 @@
+.header {
+  height: 5rem;
+  background-color: rgb(24, 17, 24);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header__heading {
+  font-size: 1.75rem;
+  color: white;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.header__heading:hover {
+  transform: scale(1.5);
+}
+
+.header__nav {
+  display: flex;
+}
+
+.header__item {
+  background-color: rgb(57, 61, 161);
+  border-radius: 1.75rem;
+  margin: 0 1rem;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+  color: rgb(218, 238, 255);
+  box-shadow: 1px 2px 3px 1px black;
+  transition: all 0.2s ease;
+}
+
+.header__item:hover {
+  background-color: blue;
+  box-shadow: 1px 0 1px -1px black;
+}
+
+.main {
+  min-height: 70rem;
+}
